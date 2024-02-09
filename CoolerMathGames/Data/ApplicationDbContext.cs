@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using CoolerMathGames.Models;
 
 namespace CoolerMathGames.Data
 {
@@ -9,5 +10,7 @@ namespace CoolerMathGames.Data
             : base(options)
         {
         }
+
+        public DbSet<TypingTest> TypingTests { get; set;}
     }
 }
