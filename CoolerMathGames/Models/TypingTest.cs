@@ -5,13 +5,13 @@ namespace CoolerMathGames.Models
 {
     public class TypingTest
     {
-        public float Timer;
+        public float Timer = 0;
         public float MaxTime = 60;
-        public float TimeLeft;
+        public float TimeLeft = 0;
         public int? Mistakes = 0;
         public bool IsTyping = false;
-        public float WPM;
-        public float Accuracy;
+        public float WPM = 0;
+        public float Accuracy = 0;
 
         public TypingTest()
         {

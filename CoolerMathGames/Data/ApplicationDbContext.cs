@@ -11,6 +11,6 @@ namespace CoolerMathGames.Data
         {
         }
 
-        public DbSet<TypingTest> TypingTests { get; set;}
+        //public DbSet<TypingTest> TypingTests { get; set;}
     }
 }
