@@ -1,38 +1,42 @@
 ﻿@model TypingTest
 
-<h1>Typing Speed Test Game</h1>
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Typing Test Results</h1>
 
 <div class="wrapper align-content-center">
-<div class="content-box">
-        <div class="typing-text">
-            <p id="paragraph">
-                @Model.Sentence
-            </p>
-        </div>
+    <div class="content-box">
 
-        <div>
-            <input id="userInput" class="form-control me-2" type="text" placeholder="Type To Start The Test">
-        </div>
+        <h4 class="text-white">Congratulations! You have completed the typing test.</h4>
+        <h6 class="text-white">Your results:</h6>
 
         <div class="content">
             <ul class="result-details">
                 <li class="time">
                     <p>
-                        Timer:
+                        Time Spent:
+                        <span>
+                            @Model.TimeSpentTyping
+                        </span>
                     </p>
-                    <span id="timer"><b>0</b></span>
                 </li>
                 <li class="mistake">
                     <p>
                         Mistakes:
+                        <span>
+                            @Model.Mistakes
+                        </span>
                     </p>
-                    <span id="mistakeCount">0</span>
                 </li>
                 <li class="wpm">
                     <p>
                         WPM:
+                        <span>
+                            @Model.WPM
+                        </span>
                     </p>
-                    <span id="WPM">0</span>
                 </li>
             </ul>
 
@@ -42,117 +46,6 @@
         </div>
     </div>
 </div>
-
-@* Script for Typing Test Function *@
-<script>
-    var originalSentence = "@Model.Sentence";
-    var userInput = document.getElementById("userInput");
-    var mistakeCount = document.getElementById("mistakeCount");
-    var paragraph = document.getElementById("paragraph");
-    var currentWordIndex = 0;
-    var previousInput = "";
-    var mistakes = 0; // Variable to store mistake count
-    var startTime = null;
-
-    userInput.addEventListener("input", function () {
-        if (!startTime) {
-            startTime = new Date().getTime(); // Start the timer
-        }
-
-        var input = userInput.value.trim();
-        var original = originalSentence.trim();
-
-        updateParagraph();
-        updateTimer();
-        mistakeCount.textContent = mistakes; // Update mistake count
-        previousInput = input;
-
-        if (input.endsWith(original.split(" ").slice(-1))) {
-            showResults();
-        }
-    });
-
-    function updateParagraph() {
-        var input = userInput.value.trim();
-        var original = originalSentence.trim();
-        var outputSentence = "";
-
-        var inputWords = input.split(" ");
-        var originalWords = original.split(" ");
-
-        mistakes = countMistakes(input, original); // Recalculate mistakes
-
-        for (var i = 0; i < originalWords.length; i++) {
-            if (i < inputWords.length) {
-                var word = originalWords[i];
-                var userInputWord = inputWords[i];
-                if (userInputWord === word) {
-                    outputSentence += "<span class='correct'>" + word + "</span> ";
-                } else {
-                    outputSentence += "<span class='incorrect'>" + word + "</span> ";
-                }
-            } else {
-                outputSentence += "<span class='typed'>" + originalWords[i] + "</span> ";
-            }
-        }
-
-        paragraph.innerHTML = outputSentence;
-        highlightCurrentWord(inputWords, originalWords);
-    }
-
-    function updateTimer() {
-        var currentTime = new Date().getTime();
-        var elapsedTime = (currentTime - startTime) / 1000; // Convert milliseconds to seconds
-        document.getElementById("timer").textContent = elapsedTime.toFixed(2); // Update timer display
-    }
-
-    function highlightCurrentWord(inputWords, originalWords) {
-        for (var i = 0; i < inputWords.length; i++) {
-            if (inputWords[i] !== originalWords[i]) {
-                break;
-            }
-            currentWordIndex = i + 1;
-        }
-
-        var spans = paragraph.querySelectorAll("span");
-        for (var i = 0; i < spans.length; i++) {
-            spans[i].classList.remove("current");
-        }
-
-        if (currentWordIndex < inputWords.length) {
-            spans[currentWordIndex].classList.add("current");
-        }
-    }
-
-    function countMistakes(input, original) {
-        var count = 0;
-        for (var i = 0; i < original.length; i++) {
-            if (input[i] && input[i] !== original[i]) {
-                count++;
-            }
-        }
-        // Add mistakes for skipped characters (e.g., when space is pressed)
-        count += Math.abs(input.split("").length - original.split("").length);
-
-        return count;
-    }
-
-    function calculateWPM(numberOfWords, timeSpent) {
-        var minutes = timeSpent / 60; // Convert time spent from seconds to minutes
-        var WPM = numberOfWords / minutes;
-        return WPM.toFixed(2); // Round to two decimal places
-    }
-
-    function showResults() {
-        var numberOfMistakes = mistakes;
-        var endTime = new Date().getTime();
-        var timeSpent = (endTime - startTime) / 1000; // Convert milliseconds to seconds
-        var numberOfWords = originalSentence.split(" ").length;
-        var WPM = calculateWPM(numberOfWords, timeSpent);
-
-        window.location.href = '/TypingTest/Results?mistakes=' + numberOfMistakes + '&timeSpent=' + timeSpent + '&WPM=' + WPM;
-    }
-</script>
 
 <style>
     * {
@@ -269,7 +162,6 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        border-top: 3px solid #007acc;
     }
 
     .content button {

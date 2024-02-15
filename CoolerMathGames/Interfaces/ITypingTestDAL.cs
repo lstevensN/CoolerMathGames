@@ -4,8 +4,8 @@ namespace CoolerMathGames.Interfaces
 {
     public interface ITypingTestDAL
     {
-        IEnumerable<TypingTest> GetTypingTests();
+        //IEnumerable<TypingTest> GetTypingTests();
 
-        void RandomizeSentences(string sentence);
+        //TypingTest GetRandomTest();
     }
 }
