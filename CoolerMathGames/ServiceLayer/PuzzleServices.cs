@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualBasic;
-using Sudoku.ServiceLayer;
+using CoolerMathGames.ServiceLayer;
 
 namespace CoolerMathGames.ServiceLayer
 {

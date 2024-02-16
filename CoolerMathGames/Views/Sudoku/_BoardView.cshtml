@@ -8,8 +8,8 @@
 
     <form asp-action="@updateBoardActionName" asp-controller="@updateBoardView" method="post" name="updateForm" autocomplete="off">
         @{
-            int boardSize = Sudoku.ServiceLayer.Constants.BoardSize;
-            int blockSize = Sudoku.ServiceLayer.Constants.BlockSize;
+            int boardSize = CoolerMathGames.ServiceLayer.Constants.BoardSize;
+            int blockSize = CoolerMathGames.ServiceLayer.Constants.BlockSize;
 
             <input type="hidden" name="BoardNumber" id="BoardNumber" value="@Model.BoardNumber" />
 
