@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Sudoku Main";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Sudoku!</h1>
+    <p>Let's play a game :D</p>
+</div>
+
+<br />
+
+<div style="height: 250px">
+    <center>
+        <table>
+            <tr>
+                <td valign="top" style="width: 1080px" align="right">
+                    <div><span style="font-size: 150pt;">SUDOKU</span></div>
+                </td>
+
+                <td valign="top" style="width: 220px" align="center">
+                    <span style="font-size: 160pt; font-weight: bold;"><i>4</i></span>
+                </td>
+            </tr>
+        </table>
+    </center>
+</div>
+
+<br />
+
+<div>
+    <center>
+        <a asp-action="NewSudoku" asp-controller="Sudoku">Play Sudoku</a>
+    </center>
+</div>

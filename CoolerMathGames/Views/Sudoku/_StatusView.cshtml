@@ -1,0 +1,22 @@
+﻿@model FullBoard
+
+@{
+    string className = "statusViewRegular";
+    string status = Model.Status.ToString();
+
+    if (status == "Invalid")
+    {
+        className = "statusViewWarning";
+    }
+    else if (status == "Complete")
+    {
+        className = "statusViewSuccess";
+    }
+}
+
+<div class="@className">
+    <h3>The puzzle's status is: </h3>
+    <center>
+        <h1><i>@Model.Status</i></h1>
+    </center>
+</div>

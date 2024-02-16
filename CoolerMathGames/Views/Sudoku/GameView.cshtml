@@ -1,0 +1,59 @@
+﻿@model FullBoard
+
+<style>
+    body {
+        background-image: url("/images/SudokuBackground.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td valign="top" rowspan="2">
+                    <partial name="_StatusView" />
+                </td>
+
+                <td valign="top" rowspawn="2">
+                    <center>
+                        @{
+                            ViewData["updateAction"] = "UpdateSudoku";
+                            ViewData["updateView"] = "Sudoku";
+                        }
+                        <partial name="_BoardView.cshtml" />
+                    </center>
+                </td>
+
+                <td valign="top">
+                    <form asp-action="Index" asp-controller="Sudoku">
+                        <div style="height: 5px"></div>
+                        <button type="submit" class="bigbutton">Back to Menu</button>
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td valign="bottom">
+                    <form asp-action="ResetSudoku" asp-controller="Sudoku">
+                        <partial name="_ResetButtonView" />
+                    </form>
+                    <form asp-action="NewSudoku" asp-controller="Sudoku">
+                        <button type="submit" class="bigbutton">New</button>
+                    </form>
+                    @{
+                        ViewData["saveAction"] = "SaveSudoku";
+                        ViewData["saveView"] = "Sudoku";
+                    }
+                    <form asp-action="SaveSudoku" asp-controller="Sudoku">
+                        <partial name="_SaveButtonView" />
+                    </form>
+                    <form asp-action="LoadSudoku" asp-controller="Sudoku">
+                        <button type="submit" class="bigbutton">Load</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>

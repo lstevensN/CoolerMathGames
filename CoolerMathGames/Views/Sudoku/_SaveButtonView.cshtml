@@ -1,0 +1,25 @@
+﻿@model FullBoard
+
+<div>
+    @{
+        string saveActionName = ViewBag.saveAction.ToString();
+        string saveView = ViewBag.saveView.ToString();
+    }
+
+    <form asp-action="@saveActionName" asp-controller="@saveView" method="post" name="saveForm" autocomplete="off">
+        @{
+            for (int i = 0; i < Model.BoardList.Count; i++)
+            {
+                <input type="hidden" name="value" id="value" value="@Model.BoardList[i].Value" />
+                <input type="hidden" name="XCoordinate" id="XCoordinate" value="@Model.BoardList[i].XCoordinate" />
+                <input type="hidden" name="YCoordinate" id="YCoordinate" value="@Model.BoardList[i].YCoordinate" />
+                <input type="hidden" name="BlockNumber" id="BlockNumber" value="@Model.BoardList[i].BlockNumber" />
+            }
+
+            <input type="hidden" name="BoardNumber" id="BoardNumber" value="@Model.BoardNumber" />
+
+            <button type="submit" class="bigbutton" name="action">Save</button>
+            <br />
+        }
+    </form>
+</div>

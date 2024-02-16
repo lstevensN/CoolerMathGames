@@ -1,0 +1,41 @@
+﻿@model FullBoard
+
+<div>
+    @{
+        string updateBoardActionName = ViewBag.updateAction.ToString();
+        string updateBoardView = ViewBag.updateView.ToString();
+    }
+
+    <form asp-action="@updateBoardActionName" asp-controller="@updateBoardView" method="post" name="updateForm" autocomplete="off">
+        @{
+            int boardSize = Sudoku.ServiceLayer.Constants.BoardSize;
+            int blockSize = Sudoku.ServiceLayer.Constants.BlockSize;
+
+            <input type="hidden" name="BoardNumber" id="BoardNumber" value="@Model.BoardNumber" />
+
+            for (int x = 0; x < boardSize; x++)
+            {
+                if ((x != 0) && (x % blockSize == 0))
+                {
+                    @:<br />
+                }
+
+                for (int y = 0; y < boardSize; y++)
+                {
+                    if ((y != 0) && (y % blockSize == 0))
+                    {
+                        @:&nbsp;
+                    }
+
+                    <input type="text" name="Value" id="Value" value="@Model.BoardList[x * boardSize + y].Value"
+                           maxlength="1" size="1" autocomplete="off" onkeyup="SubmitValidCellValue(event)" />
+
+                    <input type="hidden" name="XCoordinate" id="XCoordinate" value="@Model.BoardList[x * boardSize + y].XCoordinate" />
+                    <input type="hidden" name="YCoordinate" id="YCoordinate" value="@Model.BoardList[x * boardSize + y].YCoordinate" />
+                    <input type="hidden" name="BlockNumber" id="BlockNumber" value="@Model.BoardList[x * boardSize + y].BlockNumber" />
+                }
+                <br />
+            }
+        }
+    </form>
+</div>

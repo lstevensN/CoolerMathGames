@@ -1,0 +1,8 @@
+﻿@model FullBoard
+
+<div>
+    <form asp-action="ResetSudoku" asp-controller="Sudoku" method="post" name="resetForm" autocomplete="off">
+        <input type="hidden" name="BoardNumber" id="BoardNumber" value="@Model.BoardNumber" />
+        <button type="submit" class="bigbutton" name="action">Reset</button>
+    </form>
+</div>
