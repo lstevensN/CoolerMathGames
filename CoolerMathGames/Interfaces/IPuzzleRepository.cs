@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace CoolerMathGames.Data
+namespace CoolerMathGames.Interfaces
 {
     public interface IPuzzleRepository
     {

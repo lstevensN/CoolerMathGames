@@ -2,11 +2,20 @@
 using CoolerMathGames.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using CoolerMathGames.Interfaces;
 
 namespace CoolerMathGames.Controllers
 {
     public class TypingTestController : Controller
     {
+        /*
+        ITypingTestDAL dal;
+        public TypingTestController(ITypingTestDAL indal)
+        {
+            dal = indal;
+        }
+        */
+
         private static List<TypingTest> SentenceList = new List<TypingTest>()
         {
             new TypingTest("After a few miles of walking, we began to hear a familiar screech in the distance."),
