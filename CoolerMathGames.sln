@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolerMathGames", "CoolerMathGames.csproj", "{AE4D284F-B299-40C9-899D-7AFEE21AA754}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolestMathGames", "..\CoolestMathGames\CoolestMathGames.csproj", "{5C4F3504-FC0B-4858-B34B-6B260F14C9F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AE4D284F-B299-40C9-899D-7AFEE21AA754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE4D284F-B299-40C9-899D-7AFEE21AA754}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE4D284F-B299-40C9-899D-7AFEE21AA754}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE4D284F-B299-40C9-899D-7AFEE21AA754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4F3504-FC0B-4858-B34B-6B260F14C9F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4F3504-FC0B-4858-B34B-6B260F14C9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4F3504-FC0B-4858-B34B-6B260F14C9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4F3504-FC0B-4858-B34B-6B260F14C9F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
