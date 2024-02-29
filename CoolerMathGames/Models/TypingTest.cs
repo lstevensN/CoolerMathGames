@@ -14,11 +14,9 @@ namespace CoolerMathGames.Models
         public int? Mistakes = 0;
         public float? WPM = 0;
 
-        public TypingTest()
-        {
-            Timer = MaxTime;
-            TimeLeft = Timer;
-        }
+        public float? highScoreWPM = 0;
+
+        public TypingTest() { }
 
         public TypingTest(float timer, float maxTime, float timeLeft, int? mistakes, float wpm)
         {

@@ -47,6 +47,11 @@ namespace CoolerMathGames.Controllers
             model.TimeSpentTyping = timeSpent;
             model.WPM = WPM;
 
+            if (WPM > model.highScoreWPM)
+            {
+                model.highScoreWPM = WPM;
+            }
+
             return View("Results", model);
         }
     }

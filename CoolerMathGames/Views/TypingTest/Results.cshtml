@@ -38,6 +38,15 @@
                         </span>
                     </p>
                 </li>
+
+                <li class="highscore">
+                    <p>
+                        Highest WPM:
+                        <span>
+                            @Model.highScoreWPM
+                        </span>
+                    </p>
+                </li>
             </ul>
 
             <form class="d-flex" asp-controller="TypingTest" asp-action="TryAgain" method="post">
