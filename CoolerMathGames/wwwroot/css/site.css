@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -15,4 +15,10 @@ html {
 
 body {
   margin-bottom: 60px;
+}*/
+
+.thumbnail {
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 8px;
 }

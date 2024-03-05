@@ -6,6 +6,30 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+    .statusViewRegular {
+        color: black;
+        background-color: white;
+        border: 5px solid black;
+        padding: 10px;
+        margin-right: 10%;
+    }
+
+    .statusViewWarning {
+        color: black;
+        background-color: white;
+        border: 5px solid red;
+        padding: 10px;
+        margin-right: 10%;
+    }
+
+    .statusViewSuccess {
+        color: black;
+        background-color: white;
+        border: 5px solid green;
+        padding: 10px;
+        margin-right: 10%;
+    }
 </style>
 
 <body>
@@ -27,7 +51,7 @@
                 </td>
 
                 <td valign="top">
-                    <form asp-action="Index" asp-controller="Sudoku">
+                    <form asp-action="Index" asp-controller="Home">
                         <div style="height: 5px"></div>
                         <button type="submit" class="bigbutton">Back to Menu</button>
                     </form>
@@ -36,22 +60,24 @@
 
             <tr>
                 <td valign="bottom">
-                    <form asp-action="ResetSudoku" asp-controller="Sudoku">
-                        <partial name="_ResetButtonView" />
-                    </form>
-                    <form asp-action="NewSudoku" asp-controller="Sudoku">
-                        <button type="submit" class="bigbutton">New</button>
-                    </form>
-                    @{
-                        ViewData["saveAction"] = "SaveSudoku";
-                        ViewData["saveView"] = "Sudoku";
-                    }
-                    <form asp-action="SaveSudoku" asp-controller="Sudoku">
+                    <div class="row">
+                        <form asp-action="ResetSudoku" asp-controller="Sudoku">
+                            <partial name="_ResetButtonView" />
+                        </form>
+                        <form asp-action="NewSudoku" asp-controller="Sudoku">
+                            <button type="submit" class="bigbutton">New</button>
+                        </form>
+                        @{
+                            ViewData["saveAction"] = "SaveSudoku";
+                            ViewData["saveView"] = "Sudoku";
+                        }
+                        @* <form asp-action="SaveSudoku" asp-controller="Sudoku">
                         <partial name="_SaveButtonView" />
-                    </form>
-                    <form asp-action="LoadSudoku" asp-controller="Sudoku">
+                        </form>
+                        <form asp-action="LoadSudoku" asp-controller="Sudoku">
                         <button type="submit" class="bigbutton">Load</button>
-                    </form>
+                        </form> *@
+                    </div>
                 </td>
             </tr>
         </table>
