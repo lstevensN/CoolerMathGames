@@ -31,7 +31,7 @@ namespace CoolerMathGames.Controllers
             return View();
         }
 
-        public IActionResult NewSudoku()
+        public IActionResult Sudoku()
         {
             FullBoard board = new FullBoard() { BoardList = puzzleServices.SetupBoard() };
 

@@ -1,0 +1,18 @@
+﻿@model Game
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<table class="table-dark" align="center" style="padding:0px; margin-bottom:10px; width:700px">
+		<tr class="table-dark">
+			<th width="50%">
+				<a asp-area="" asp-controller="@Model.GameLink" asp-action="@Model.GameLink">
+					<img src="@Model.Image" width="200" height="200" />
+				</a>
+			</th>
+			<th>@Model.Description</th>
+		</tr>
+	</table>
+</div>
