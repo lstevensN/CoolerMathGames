@@ -13,8 +13,8 @@ namespace CoolerMathGames.Data
 
         public XmlFilePuzzleRepository()
         {
-            puzzleSetupXmlPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase.ToString(), puzzleSetupXmlString);
-            savedGameXmlPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase.ToString(), savedGameXmlString);
+            puzzleSetupXmlPath = Path.Combine("wwwroot/xml/", puzzleSetupXmlString);
+            savedGameXmlPath = Path.Combine("wwwroot/xml/", savedGameXmlString);
         }
 
         public XDocument LoadPuzzleSetupXDoc()
